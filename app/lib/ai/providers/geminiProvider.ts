@@ -2,6 +2,7 @@ import { extractEventsResponseSchema, type ExtractEventsRequest, type ExtractEve
 
 export async function extractWithGemini(input: ExtractEventsRequest): Promise<ExtractEventsResponse> {
   const apiKey = process.env.GEMINI_API_KEY;
+
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY が未設定です。AI_PROVIDER=mock で開発するか、サーバー環境変数に設定してください。');
   }
@@ -75,4 +76,5 @@ ${input.text}`;
   } catch (error) {
     throw new Error(`GeminiのJSON検証に失敗しました。再試行してください。詳細: ${error instanceof Error ? error.message : 'unknown'}`);
   }
+
 }

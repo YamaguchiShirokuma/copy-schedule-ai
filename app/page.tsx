@@ -1,5 +1,6 @@
 'use client';
 
+
 import { useMemo, useState } from 'react';
 import type { ExtractedCalendarEvent, ExtractEventsResponse } from './lib/ai/schema';
 
@@ -171,4 +172,5 @@ export default function Home() {
       )}
     </main>
   );
+
 }

@@ -5,7 +5,9 @@ LINEやメール本文を貼り付けると，AIが予定候補を抽出し，�
 ## 実装内容
 
 - トップ画面: 本文貼り付け，受信日，タイムゾーン，サンプル入力，Gemini Free Tier利用時の注意書き。
+
 - 抽出結果確認画面: 予定候補のカード表示，タイトル/種別/日時/終日/場所/meetingUrl/説明/登録有無の編集，confidence，曖昧な点，不足情報，確認バッジ表示。
+
 - AI Provider抽象化:
   - `AI_PROVIDER=mock`: APIキーなしで固定の予定候補を返します。
   - `AI_PROVIDER=gemini`: サーバー側のみで`GEMINI_API_KEY`を使いGemini APIへJSON抽出を依頼します。
@@ -86,6 +88,7 @@ SESSION_SECRET=change-me-to-at-least-32-characters
 7月7日（火）18:00〜19:00
 ```
 
+
 ## 抽出仕様
 
 - `meetingUrl`を予定候補のフィールドとして扱います。本文にURLがある場合は`meetingUrl`に入れ，説明にも「面接リンク: URL」の形で含めます。
@@ -94,6 +97,7 @@ SESSION_SECRET=change-me-to-at-least-32-characters
 - 「6月24日14時から1時間」は開始`14:00`，終了`15:00`として扱います。
 - 年が本文にない場合，受信日があれば受信日の年を使います。受信日もなければ現在年を仮定し，`needsConfirmation=true`にして`ambiguityNotes`に「年が明記されていないため現在年を仮定」を入れます。
 - Google Calendar登録時の説明には`event.description`，`meetingUrl`，`sourceText`を含めます。
+
 
 ## APIルート
 

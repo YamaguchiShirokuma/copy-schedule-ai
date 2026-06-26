@@ -39,4 +39,5 @@ describe('mock provider', () => {
     });
     expect(res.events[0].ambiguityNotes).toContain('年が明記されていないため現在年を仮定');
   });
+
 });

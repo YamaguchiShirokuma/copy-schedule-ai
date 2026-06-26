@@ -1,5 +1,6 @@
 import type { ExtractedCalendarEvent } from '../ai/schema';
 
+
 const scope = 'https://www.googleapis.com/auth/calendar.events';
 
 export function googleAuthUrl() {
@@ -70,3 +71,4 @@ export async function createGoogleEvent(accessToken: string, event: ExtractedCal
   if (!response.ok) throw new Error(await response.text());
   return response.json();
 }
+

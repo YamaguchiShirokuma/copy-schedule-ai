@@ -176,4 +176,5 @@ export async function extractWithMock(input: ExtractEventsRequest): Promise<Extr
     ],
     globalAmbiguityNotes: [],
   };
+
 }
